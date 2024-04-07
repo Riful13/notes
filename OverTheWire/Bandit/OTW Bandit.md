@@ -4,7 +4,7 @@ EDIT:
 
 --[ Playing the games ]--  
   
- This machine might hold several wargames. 
+ This machine might hold several wargames.
  If you are playing "somegame", then:  
   
    * USERNAMES are somegame0, somegame1, ...  
@@ -18,9 +18,9 @@ EDIT:
 ssh -p 2220 bandit0@bandit.labs.overthewire.org
 `
 
-![[Pasted image 20240406155236.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406155236.png]]
 
-![[Pasted image 20240406155302.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406155302.png]]
 
 `ls`
 
@@ -44,7 +44,7 @@ Solution:
 `ls`
 
 As we can see, the file we need to read is a Hyphen/Dash. We can't `cat -` as we normally would.
-![[Pasted image 20240406155658.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406155658.png]]
 
 We have two ways of solving it, either:
 `cat ./-` or `cat -- -`, but the last one doesn't work on my system,  I need to test it somewhere else.
@@ -66,7 +66,7 @@ Solution:
 
 There's only one file, and it has spaces.
 
-![[Pasted image 20240406160413.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406160413.png]]
 
 Of course, `cat spaces in this filename`doesn't work, so we have to change the syntax. (We can also let the autocomplete do it for us)
 
@@ -93,7 +93,7 @@ We can see that normal `ls`doesn't show anything in this folder, so we can suppo
 
 `ls -a`
 
-![[Pasted image 20240406160951.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406160951.png]]
 
 `cat hidden`
 
@@ -109,10 +109,10 @@ From now on we should make sure of using `ls -a`.
 In this level we find the same folder **inhere**, and once we are in, there is 10 files and we have to find the correct one.
 
 Checking one by one is not the correct approach:
-![[Pasted image 20240406161523.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406161523.png]]
 
 We could try `file *`, but it throws an error since all of them starts with a hyphen, and the shell interprets it as an option:
-![[Pasted image 20240406161945.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406161945.png]]
 
 We found the next command:
 `find . -maxdepth 1 -type f -exec file {} \; | grep "ASCII text"`
@@ -128,7 +128,7 @@ We found the next command:
 
 This command will help you identify human-readable files in the current directory even if their filenames start with a hyphen ("-").
 
-![[Pasted image 20240406162232.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406162232.png]]
 
 `cat ./-file07`
 
@@ -149,7 +149,7 @@ Same as before:
 `ls -a`
 
 We see a bunch of directories.
-![[Pasted image 20240406162634.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406162634.png]]
 
 
 > Clues:
@@ -173,7 +173,7 @@ We use the find command just as before, lets break it down:
 
 If you have multiple directories to search within, you can simply replace `/path/to/search` with the top-level directory containing all the directories you need to search recursively.
 
-![[Pasted image 20240406170646.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406170646.png]]
 
 `cat maybehere07/.file2`
 
@@ -203,7 +203,7 @@ If we `ls`in this directory, we will see the directory of every bandit level. No
 Following the structure from before and using `find / -type f -size 33c -user bandit7 -group bandit6` seems useful and simple enough, but there's a lot of error bloat in the output. We need to add `2>/dev/null`.
 
 `find / -type f -size 33c -user bandit7 -group bandit6 2>/dev/null`
-![[Pasted image 20240406172849.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240406172849.png]]
 `cat /var/lib/dpkg/info/bandit7.password`
 
 Password: z7WtoNQU2XfjmMtWA8u5rN4vzqu4v99S
@@ -217,7 +217,7 @@ Solution:
 
 `ls` and we already have the `data.txt`where the password is located.
 But as we can see, it's bloated.
-![[Pasted image 20240407020037.png]]
+![[OverTheWire/Bandit/img/Pasted image 20240407020037.png]]
 
 Thankfully, the clue we have for this game is: 
 > The password for the next level is stored in the file **data.txt** next to the word **millionth**
