@@ -41,7 +41,7 @@ Password: NH2SXQwcBdpmTEzi3bvBHMM9H66vVXjL
 # Level 1
 `ssh -p 2220 bandit1@bandit.labs.overthewire.org`
 
-Solution:
+## Solution:
 
 `ls`
 
@@ -53,9 +53,18 @@ We have two ways of solving it, either:
 
 `exit`
 
-Password: rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi
+### Password: 
+`rRGizSaX8Mk1RTb1CNQoXTcYZWU6lgzi`
 
 
+<p>
+<details>
+<summary>Spaced spoiler</summary>
+
+
+
+</details>
+</p>
 
 # Level 2
 `
@@ -202,7 +211,7 @@ If we `ls`in this directory, we will see the directory of every bandit level. No
 > - owned by group bandit6
 > - 33 bytes in size
 
-Following the structure from before and using `find / -type f -size 33c -user bandit7 -group bandit6` seems useful and simple enough, but there's a lot of error bloat in the output. We need to add `2>/dev/null`.
+Following the structure from before and using `find / -type f -size 33c -user bandit7 -group bandit6` seems useful and simple enough, but there's a lot of error bloat in the output. So to get rid of that we can add `2>/dev/null`.
 
 `find / -type f -size 33c -user bandit7 -group bandit6 2>/dev/null`
 ![](_attachments/Pasted%20image%2020240406172849.png)
@@ -225,7 +234,7 @@ Thankfully, the clue we have for this game is:
 > The password for the next level is stored in the file **data.txt** next to the word **millionth**
 
 
-Simply, we need to read the file and grep the word. We can use the following sintax:
+Basically, we need to read the file and grep the word. We can use the following sintax:
 
 `strings data.txt | grep -o 'millionth.*'`
 
@@ -247,41 +256,41 @@ ssh -p 2220 bandit8@bandit.labs.overthewire.org
 
 # Level 9
 `
-ssh -p 2220 bandit8@bandit.labs.overthewire.org
+ssh -p 2220 bandit9@bandit.labs.overthewire.org
 `
 
 
 # Level 10
 `
-ssh -p 2220 bandit8@bandit.labs.overthewire.org
+ssh -p 2220 bandit10@bandit.labs.overthewire.org
 `
 
 
 # Level 11
 `
-ssh -p 2220 bandit8@bandit.labs.overthewire.org
+ssh -p 2220 bandit11@bandit.labs.overthewire.org
 `
 
 
 # Level 12
 `
-ssh -p 2220 bandit8@bandit.labs.overthewire.org
+ssh -p 2220 bandit12@bandit.labs.overthewire.org
 `
 
 
 # Level 13
 `
-ssh -p 2220 bandit8@bandit.labs.overthewire.org
+ssh -p 2220 bandit13@bandit.labs.overthewire.org
 `
 
 # Level 14
 `
-ssh -p 2220 bandit8@bandit.labs.overthewire.org
+ssh -p 2220 bandit14@bandit.labs.overthewire.org
 `
 
 # Level 15
 `
-ssh -p 2220 bandit8@bandit.labs.overthewire.org
+ssh -p 2220 bandit15@bandit.labs.overthewire.org
 `
 
 
